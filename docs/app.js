@@ -1,12 +1,12 @@
 const SITE_LINKS = Object.freeze({
-  repo: "https://github.com/NI3singh/GitGrout",
-  releases: "https://github.com/NI3singh/GitGrout/releases",
-  removalContact: "https://github.com/NI3singh/GitGrout/issues/new?title=Image%20Removal%20Request",
+  repo: "https://github.com/NI3singh/Github-grout",
+  releases: "https://github.com/NI3singh/Github-grout/releases",
+  removalContact: "https://github.com/NI3singh/Github-grout/issues/new?title=Image%20Removal%20Request",
   creatorGithub: "https://github.com/NI3singh",
   portfolio: "https://portfolio-nitinsingh.vercel.app/",
-  x: "https://x.com/",
-  linkedin: "https://www.linkedin.com/",
-  instagram: "https://www.instagram.com/"
+  x: "https://x.com/nitinsingh333",
+  linkedin: "https://www.linkedin.com/in/nitinsinghr/",
+  instagram: "https://www.instagram.com/1_andonly_ni3?hvrq=eGlrNTJmajd2aDRk"
 });
 
 (() => {
