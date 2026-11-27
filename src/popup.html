@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub Grout</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header class="header">
+      <div><h1>GitHub Grout</h1><p>Style the space between contributions.</p></div>
+      <button id="reset" class="icon-button" type="button" aria-label="Reset to defaults" title="Reset to defaults">↺</button>
+    </header>
+    <section class="global-controls" aria-label="Global controls">
+      <label class="switch-row"><strong>Enable Grout</strong><input id="enabled" type="checkbox"></label>
+      <label class="switch-row"><span>Show in-page button</span><input id="show-in-page" type="checkbox"></label>
+    </section>
+    <div id="preview" class="preview" aria-hidden="true"></div>
+    <section class="section" aria-labelledby="presets-title">
+      <div class="section-title" id="presets-title">Presets</div>
+      <div id="presets" class="presets"></div>
+    </section>
+    <section class="section" aria-labelledby="style-title">
+      <div class="section-title" id="style-title">Style</div>
+      <div id="styles" class="segments"></div>
+    </section>
+    <section class="section" aria-labelledby="color-title">
+      <div class="section-title" id="color-title">Color</div>
+      <div class="color-row"><input id="color" type="color" aria-label="Grout color"><input id="hex" class="hex" type="text" aria-label="Hex color" maxlength="7" spellcheck="false"></div>
+      <div id="holo-note" class="note" hidden>Holographic uses its own color blend.</div>
+    </section>
+    <section class="section" aria-labelledby="shape-title">
+      <div class="section-title" id="shape-title">Tile Shape</div>
+      <div class="shapes"><button type="button" data-radius="0">Sharp</button><button type="button" data-radius="2">Default</button><button type="button" data-radius="4">Rounded</button><button type="button" data-radius="50">Circle</button></div>
+    </section>
+    <section class="section toggles" aria-label="Effects and theme controls">
+      <label class="switch-row"><span>Shimmer Animation</span><input id="shimmer" type="checkbox"></label>
+      <label class="switch-row"><span>Chamkila Sparkle</span><input id="chamkila" type="checkbox"></label>
+      <label class="switch-row"><span>Separate Light/Dark Themes</span><input id="separate" type="checkbox"></label>
+      <div id="theme-helper" class="note" hidden></div>
+    </section>
+  </main>
+  <script src="presets.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

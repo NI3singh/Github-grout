@@ -1,0 +1,126 @@
+@keyframes ghGroutShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ghChamkilaTwinkle {
+  0%, 100% { opacity: 0.12; }
+  38% { opacity: 0.18; }
+  50% { opacity: 1; }
+  62% { opacity: 0.18; }
+}
+
+html[data-gh-grout-enabled="true"] .gh-grout-mask-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+html[data-gh-grout-enabled="true"] .gh-grout-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--gh-grout-color);
+  background-image: var(--gh-grout-image, none);
+  background-size: var(--gh-grout-size, auto);
+  mask-repeat: no-repeat;
+}
+
+html[data-gh-grout-enabled="true"] table.ContributionCalendar-grid,
+html[data-gh-grout-enabled="true"] table.ContributionCalendar-grid tbody,
+html[data-gh-grout-enabled="true"] table.ContributionCalendar-grid tr {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+html[data-gh-grout-enabled="true"] table.ContributionCalendar-grid td.ContributionCalendar-day {
+  border-radius: var(--gh-tile-radius, 2px) !important;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-shimmer="true"][data-gh-grout-style="metallic"] .gh-grout-canvas,
+html[data-gh-grout-enabled="true"][data-gh-grout-shimmer="true"][data-gh-grout-style="glitter"] .gh-grout-canvas,
+html[data-gh-grout-enabled="true"][data-gh-grout-shimmer="true"][data-gh-grout-style="holographic"] .gh-grout-canvas {
+  animation: ghGroutShimmer 5s linear infinite;
+}
+
+.gh-grout-chamkila {
+  display: none;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  background-repeat: repeat;
+  background-position: 0 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  mix-blend-mode: normal;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-base {
+  background-image: var(--gh-chamkila-base);
+  background-size: 48px 48px;
+  opacity: 0.92;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-a,
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-b,
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-c {
+  background-size: 64px 64px;
+  animation: ghChamkilaTwinkle 2s linear infinite;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-a {
+  background-image: var(--gh-chamkila-spark-a);
+  animation-duration: 2s;
+  animation-delay: 0s;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-b {
+  background-image: var(--gh-chamkila-spark-b);
+  animation-duration: 2.6s;
+  animation-delay: -0.9s;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-c {
+  background-image: var(--gh-chamkila-spark-c);
+  animation-duration: 3.1s;
+  animation-delay: -1.8s;
+}
+
+html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-glint {
+  background-image: var(--gh-chamkila-glint);
+  background-size: 64px 64px;
+  opacity: var(--gh-light-active, 0);
+  transition: opacity 220ms ease;
+  mask-image: radial-gradient(circle 115px at var(--gh-light-x, -200px) var(--gh-light-y, -200px), #fff 0%, rgba(255, 255, 255, 0.65) 40%, transparent 75%);
+  mask-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-gh-grout-enabled="true"] .gh-grout-canvas {
+    animation: none !important;
+  }
+
+  html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-a,
+  html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-b,
+  html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-c {
+    animation: none !important;
+  }
+
+  html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-a {
+    opacity: 0.75;
+  }
+
+  html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-b,
+  html[data-gh-grout-enabled="true"][data-gh-grout-chamkila="true"] .gh-grout-chamkila-spark-c {
+    opacity: 0;
+  }
+}
